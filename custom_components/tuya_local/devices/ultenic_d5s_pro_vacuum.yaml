@@ -1,0 +1,294 @@
+name: D5s Pro vacuum
+products:
+  - id: jpkqxdx1mbgoghjz
+    name: D5s Pro
+primary_entity:
+  entity: vacuum
+  dps:
+    - id: 1
+      type: boolean
+      name: power
+    - id: 17
+      type: bitfield
+      name: error
+      mapping:
+        - dps_val: 0
+          value: none
+        - dps_val: 1
+          value: fault 1
+        - dps_val: 2
+          value: fault 2
+        - dps_val: 3
+          value: fault 3
+        - dps_val: 4
+          value: fault 4
+        - dps_val: 5
+          value: fault 5
+        - dps_val: 6
+          value: fault 6
+        - dps_val: 7
+          value: fault 7
+        - dps_val: 8
+          value: fault 8
+        - dps_val: 9
+          value: fault 9
+        - dps_val: 10
+          value: fault 10
+        - dps_val: 11
+          value: fault 11
+        - dps_val: 12
+          value: fault 12
+        - dps_val: 13
+          value: fault 13
+    - id: 25
+      type: string
+      name: status
+      mapping:
+        - dps_val: NONE
+          value: NONE
+        - dps_val: smart
+          value: Smart
+        - dps_val: wallfollow
+          value: Wall Follow
+        - dps_val: mop
+          value: Mop
+        - dps_val: chargego
+          value: Returning to Dock
+        - dps_val: sprial
+          value: Sprial
+        - dps_val: "null"
+          value: unknown
+    - id: 27
+      type: string
+      name: fan
+      mapping:
+        - dps_val: ECO
+          value: low
+        - dps_val: normal
+          value: mid
+        - dps_val: strong
+          value: high
+    - id: 26
+      type: string
+      name: direction_control
+      mapping:
+        - dps_val: forward
+          value: forward
+        - dps_val: backward
+          value: backward
+        - dps_val: turnleft
+          value: left
+        - dps_val: turnright
+          value: right
+        - dps_val: stop
+          value: stop
+    - id: 33
+      type: boolean
+      name: activate
+      mapping:
+        - dps_val: false
+          value: false
+        - dps_val: true
+          value: true
+    - id: 50
+      type: boolean
+      name: locate
+      optional: true
+secondary_entities:
+  - entity: sensor
+    name: Clean area
+    category: diagnostic
+    dps:
+      - id: 41
+        type: integer
+        name: sensor
+        unit: m2
+        class: measurement
+  - entity: sensor
+    name: Clean record
+    category: diagnostic
+    dps:
+      - id: 40
+        type: string
+        name: sensor
+  - entity: sensor
+    name: Clean time
+    class: duration
+    category: diagnostic
+    dps:
+      - id: 42
+        type: integer
+        name: sensor
+        unit: min
+  - entity: sensor
+    class: battery
+    dps:
+      - id: 39
+        type: integer
+        name: sensor
+        unit: "%"
+        class: measurement
+  - entity: number
+    name: volume
+    icon: "mdi:volume-high"
+    category: config
+    dps:
+      - id: 43
+        type: integer
+        name: value
+        optional: true
+        range:
+          min: 0
+          max: 100
+  - entity: sensor
+    name: Sensor life
+    icon: "mdi:white-balance-iridescent"
+    category: diagnostic
+    dps:
+      - id: 44
+        type: integer
+        name: sensor
+        unit: "%"
+  - entity: sensor
+    name: Brush life
+    icon: "mdi:pinwheel"
+    category: diagnostic
+    dps:
+      - id: 47
+        type: integer
+        name: sensor
+        unit: "%"
+  - entity: sensor
+    name: Roller brush life
+    icon: "mdi:tire"
+    category: diagnostic
+    dps:
+      - id: 48
+        type: integer
+        name: sensor
+        unit: "%"
+  - entity: sensor
+    name: Filter life
+    category: diagnostic
+    icon: "mdi:air-filter"
+    dps:
+      - id: 45
+        type: integer
+        name: sensor
+        unit: "%"
+  - entity: button
+    name: Reset sensor
+    icon: "mdi:white-balance-iridescent"
+    category: config
+    dps:
+      - id: 54
+        type: boolean
+        name: button
+        optional: true
+  - entity: button
+    name: Reset brush
+    icon: "mdi:pinwheel"
+    category: config
+    dps:
+      - id: 56
+        type: boolean
+        name: button
+        optional: true
+  - entity: button
+    name: Reset roller brush
+    icon: "mdi:tire"
+    category: config
+    dps:
+      - id: 57
+        type: boolean
+        name: button
+        optional: true
+  - entity: button
+    name: Reset filter
+    icon: "mdi:tire"
+    category: config
+    dps:
+      - id: 55
+        type: boolean
+        name: button
+        optional: true
+  - entity: select
+    name: Mopping
+    icon: "mdi:format-color-fill"
+    category: config
+    dps:
+      - id: 60
+        type: string
+        name: option
+        mapping:
+          - dps_val: small
+            value: Low
+          - dps_val: medium
+            value: Medium
+          - dps_val: Big
+            value: High
+  - entity: sensor
+    name: Equipment_state
+    category: diagnostic
+    icon: "mdi:chat-question"
+    dps:
+      - id: 38
+        type: string
+        name: Equipment_state
+        mapping:
+          - dps_val: "0"
+            value: "0"
+          - dps_val: "1"
+            value: "1"
+          - dps_val: "2"
+            value: "2"
+          - dps_val: "3"
+            value: "3"
+          - dps_val: "4"
+            value: "4"
+          - dps_val: "5"
+            value: "5"
+          - dps_val: "6"
+            value: "6"
+          - dps_val: "7"
+            value: "7"
+  - entity: switch
+    name: Lamp
+    icon: "mdi:lightbulb"
+    category: config
+    dps:
+      - id: 51
+        type: boolean
+        name: button
+        optional: true
+  - entity: button
+    name: Restart
+    icon: "mdi:restart"
+    category: config
+    dps:
+      - id: 52
+        type: boolean
+        name: button
+        optional: true
+  - entity: switch
+    name: Fan Switch
+    icon: "mdi:pinwheel"
+    category: config
+    dps:
+      - id: 53
+        type: boolean
+        name: switch
+        optional: true
+  - entity: select
+    name: Sweep or Mop
+    icon: "mdi:robot-vacuum"
+    category: config
+    dps:
+      - id: 49
+        type: string
+        name: mode
+        mapping:
+          - dps_val: sweep
+            value: sweep
+          - dps_val: mop
+            value: mop
